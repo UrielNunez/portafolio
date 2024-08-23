@@ -1,0 +1,238 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Matemasie&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+}
+body{
+    background: yellow;
+}
+
+.Container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*------------NAV BAR-------------------*/
+nav{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    line-height: 90px;/* faltaba*/
+    background: white;
+    padding-inline:  9vw;
+    transition: .3s;
+    z-index: 100;
+}
+.nav-logo{
+    position: relative;
+    text-decoration: none;
+}
+.nav-name{
+    font-size: 30px;
+    font-weight: 600;
+    color: red;
+}
+.nav-logo span{/*ERA NAV-LOGO*/
+    position: absolute;
+    top: -15px;
+    right: -20px;
+    font-size: 5em;
+    color: black;
+}
+
+.nav-menu, .nav_menu_list{
+    display: flex;
+}
+
+/* PARA CENTRARLOS
+.nav-menu {
+    display: flex;            /* Define que este elemento se comportará como un contenedor flexible. Permite el uso de todas las propiedades de flexbox. 
+    flex-grow: 1;             /* Hace que el elemento crezca para ocupar el espacio disponible en el contenedor principal (nav). Esto asegura que .nav-menu ocupe todo el espacio restante entre los elementos flexibles adyacentes (como .nav-logo).
+    justify-content: center;  /*Centra los elementos hijos dentro de este contenedor flexible (en este caso, la lista de navegación) horizontalmente. 
+}
+.nav_menu_list {
+    display: flex;            /* Define que este elemento se comportará como un contenedor flexible. Permite el uso de todas las propiedades de flexbox. 
+}*/
+
+.nav-name, .nav_list{
+    list-style: none;
+    position: relative;
+}
+.nav-link{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    padding-inline: 15px;
+    margin-inline: 20px;
+}
+
+/*----CAMBIAR QUE SECCION ESTA SELECCIONADA--------------*/
+.active-link{
+    position: relative;
+    color: purple;
+    transition: .3s;
+}
+.active-link::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translate(-50%, -50%); /*ERA -50%*/
+    width: 5px;
+    height: 5px;
+    background: purple;
+    border-radius: 50%;
+}
+
+/*---------MAIN---------------*/
+.wrapper{
+    padding-inline: 10vw;
+    height: auto;
+}
+
+/*-----------SECCION 1 ------------------*/
+.featured-box{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    min-height: 700px;
+}
+.featured-text{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 80vh;
+    flex-direction: column;
+    width: 100%;
+}
+.featured-text, p{
+    color: black;
+}
+.featured-text-card span{
+    font-family: 'Jersey 10', sans-serif;
+
+
+    background: purple;
+    color: white;
+    padding: 3px 8px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.featured-name{
+    font-size: 60px;
+    font-weight: 700;
+    margin-block: 20px;
+}
+
+.TypedText{
+    
+    text-transform: capitalize;
+    color: aqua;
+    
+}
+/*-----BOTON PARA DESCARGAR .PDF-----------------*/
+.featured-text-btn{
+    display: flex;
+    gap: 30px;
+}
+.btn{
+    font-weight: 500;
+    padding: 12px 20px;
+    background: turquoise;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.btn > i{
+    margin-left: 10px;
+    color: black;
+}
+/*-----------IMAGEN PERSONALIZADA---------------*/
+.featured-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+}
+.image{
+    margin: auto 0;
+    width: 100%;
+    max-width: 390px;
+    border-radius: 55% 45% 55% 45%;
+    overflow: hidden;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*--------------SECCION 2 USANDO PROYECTO DE GALERIA-------------*/
+#seccion2{
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+/*--------------SECCION 2 USANDO PROYECTO DE GALERIA ABAJO ESTA EL CSS DE GALERIA-------------*/
+.container{
+    position: relative;
+    display: flex;
+    gap: 60px;
+}
+
+.container .box{
+    background: white;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 35px;
+    background-size: cover;
+}
+
+.container .box::before{
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 35px;
+    filter: blur(25px);
+    background-size: cover;
+    opacity: .5;
+    z-index: -1;
+}
+.container .box:hover{
+
+    filter: blur(5px);
+
+    animation: bounce 2s infinite;
+    transition: filter 0.3s ease;
+}
+
+@keyframes bounce {
+    0%, 100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+}
